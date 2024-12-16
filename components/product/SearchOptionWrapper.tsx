@@ -1,17 +1,17 @@
 import React from "react";
+import CategoryAccordion from "./CategoryAccordion";
+import { productCategory } from "@/docs/product";
 
 interface Props {
   setViewSearchOptionHandler: React.MouseEventHandler;
   viewSearchOption: boolean;
-  setOptionHandler: React.ChangeEventHandler;
   setKeywordHandler: React.ChangeEventHandler;
-  searchQuery: {keyword: string, zone: number[], isExport: boolean, isEcology: boolean}
+  searchQuery: {keyword: string, category: number[]}
 }
 
 const SearchOptionWrapper = ({
   viewSearchOption,
   setViewSearchOptionHandler,
-  setOptionHandler,
   setKeywordHandler,
   searchQuery
 }: Props) => {
@@ -36,22 +36,13 @@ const SearchOptionWrapper = ({
             </dd>
           </div>
           <div>
-            <dt>出展ゾーンで探す</dt>
-            <dd></dd>
-          </div>
-          <div>
-            <dt>条件で探す</dt>
+            <dt>カテゴリで探す</dt>
             <dd>
-              <ul>
-                <li>
-                  <input id="export" type="checkbox" checked={searchQuery.isExport} onChange={setOptionHandler}/>
-                  <label htmlFor="export">輸出対応可能な出展社のみ表示</label>
-                </li>
-                <li>
-                  <input id="ecology" type="checkbox" checked={searchQuery.isEcology} onChange={setOptionHandler}/>
-                  <label htmlFor="ecology">環境に配慮した出展社のみ表示</label>
-                </li>
-              </ul>
+              <dl>
+                {productCategory.map((item, i) => (
+                  <CategoryAccordion key={i} category={item}/>
+                ))}
+              </dl>
             </dd>
           </div>
         </dl>

@@ -5,8 +5,15 @@ import { siteConfig } from '@/props/siteConfig';
 import { exhibitorCategory, exhibitors } from '@/docs/exhibitor';
 import { exhibitorSearch } from '@/libs/search';
 import CategoryLabel from './CategoryLabel';
+import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 
 const Search = () => {
+
+  const searchParams = useSearchParams();
+  const ecologyProd = searchParams.has("eco");
+  const exportProd = searchParams.has("exp");
+  const category = searchParams.get("cat");
 
   const [viewSearchOption, setViewSearchOption] = useState(false);
   const [searchQuery, setSearchQuery] = useState<{keyword: string, zone: number[], isExport: boolean, isEcology: boolean}>({
@@ -69,20 +76,38 @@ const Search = () => {
   }
 
   useEffect(() => {
+    if (exportProd) {
+      setSearchQuery(prev => ({...prev, isExport: true}));
+    }
+    
+    if (ecologyProd) {
+      setSearchQuery(prev => ({...prev, isEcology: true}));
+    }
+  },[exportProd, ecologyProd])
+  
+  useEffect(() => {
+    if(category) {
+      const ary: number[] = []
+      ary.push(parseInt(category));
+      setSearchQuery(prev => ({...prev, zone: ary}));
+    }
+  },[category])
+
+  useEffect(() => {
     const array = exhibitorSearch(exhibitors, searchQuery.keyword, searchQuery.zone, searchQuery.isExport, searchQuery.isEcology);
     setExhibitorList(array);
   },[searchQuery])
 
   return (
     <div>
-      <SearchOptionWrapper viewSearchOption={viewSearchOption} setViewSearchOptionHandler={setViewSearchOptionHandler} setOptionHandler={setOptionHandler} setKeywordHandler={setKeywordHandler}/>
+      <SearchOptionWrapper viewSearchOption={viewSearchOption} setViewSearchOptionHandler={setViewSearchOptionHandler} setOptionHandler={setOptionHandler} setKeywordHandler={setKeywordHandler} searchQuery={searchQuery}/>
       <div className='bg-red-700 py-16'>
         <h1 style={{maxWidth: siteConfig.contentsWidth}} className='flex flex-col text-2xl mx-auto w-full text-white gap-1 px-2'>
           出展社一覧
           <span className='text-sm px-0.5'>EXHIBITOR</span>
         </h1>
       </div>
-      <div style={{maxWidth: siteConfig.contentsWidth + "px"}} className='mx-auto w-full flex flex-row items-center'>
+      <div style={{maxWidth: siteConfig.contentsWidth + "px"}} className='mx-auto w-full flex flex-row justify-center items-center'>
         <ul className='flex flex-row text-sm gap-4 py-4 justify-center'>
           { searchQuery.zone.length === 0 ?
             <li>
@@ -114,8 +139,16 @@ const Search = () => {
             <div className='grid grid-cols-[30%_1fr] gap-4 '>
               <div className='w-full aspect-video bg-slate-700'></div>
               <div>
-                <h2 className='p-2 font-bold'>{item.name}</h2>
-                <p className='text-sm p-2'>{item.description.slice(0, 90)}…</p>
+                <h2 className='p-2 font-bold'>
+                  <Link href={`/exhibitor/${item.id}`}>
+                    {item.name}
+                  </Link>
+                </h2>
+                <Link href={`/exhibitor/${item.id}`}>
+                  <p className='text-sm p-2'>
+                    {item.description.slice(0, 90)}…
+                  </p>
+                </Link>
               </div>
             </div>
             <ul className='flex flex-row text-sm gap-2 items-center'>

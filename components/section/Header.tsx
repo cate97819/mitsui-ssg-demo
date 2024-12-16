@@ -35,9 +35,9 @@ const Header = () => {
           
         >
           <h1>
-            <Link
+            <a
               id="0"
-              href={headerItem[0].href}
+              href={`${headerItem[0].href}`}
               className="hover:opacity-75 transition-all ease-in-out"
               onMouseEnter={setHoverHandler}
             >
@@ -47,7 +47,7 @@ const Header = () => {
                 style={{ maxHeight: siteConfig.headerHeight + "px" }}
                 className="object-contain p-2"
               />
-            </Link>
+            </a>
           </h1>
           <ul className="flex flex-row justify-end w-full text-sm font-bold gap-8 pt-0.5">
             {headerItem.map((item, i) => (
@@ -55,12 +55,11 @@ const Header = () => {
                 key={i}
                 index={i}
                 item={item}
-                invalid={pathName === item.href}
                 setHoverHandler={setHoverHandler}
               />
             ))}
           </ul>
-          <Link
+          <a
             id="4"
             href="https://google.com"
             target="_blank"
@@ -70,7 +69,7 @@ const Header = () => {
             onMouseEnter={setHoverHandler}
           >
             来場登録はこちら
-          </Link>
+          </a>
         </div>
       </div>
       {hover !== null ? (

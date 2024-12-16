@@ -1,4 +1,5 @@
 import { Exhibitor } from "@/docs/exhibitor";
+import { Product } from "@/docs/product";
 
 export const exhibitorSearch = (data: Exhibitor[], keyword: string, categories: number[], exp: boolean, eco: boolean) => {
 
@@ -38,10 +39,44 @@ export const exhibitorSearch = (data: Exhibitor[], keyword: string, categories: 
   if( exp ) {
     newArray = exportFilter(newArray);
   }
-  console.log(newArray);
   if( eco ) {
     newArray = ecologyFilter(newArray);
   }
-  console.log(newArray);
+  return newArray;
+}
+
+export const productSearch = (data: Product[], keyword: string, categories: number[], smallCategories: number[]) => {
+  const keywordFilter = (data: Product[], keyword: string) => {
+    return data.filter((item) => {
+      return item.name.includes(keyword) || item.description.includes(keyword);      
+    })
+  }
+
+  const categoryFilter = (data: Product[], categories: number[]) => {
+    return data.filter((product) => {
+      return product.categoryId.some((catId) => {
+        return categories.includes(catId)
+      });
+    })
+  };
+
+  const smallCategoryFilter = (data: Product[], smallCategories: number[]) => {
+    return data.filter((product) => {
+      return product.categoryId.some((catId) => {
+        return smallCategories.includes(catId)
+      });
+    })
+  };
+
+  let newArray = data;
+  if ( keyword ) {
+    newArray = keywordFilter(data, keyword);
+  }
+  if ( categories.length > 0 ) {
+    newArray = categoryFilter(newArray, categories);
+  }
+  if ( smallCategories.length > 0 ) {
+    newArray = smallCategoryFilter(newArray, smallCategories);
+  }
   return newArray;
 }

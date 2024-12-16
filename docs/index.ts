@@ -9,13 +9,13 @@ export const headerItem = [{
   href: "/",
 },{
   label: "主催者企画",
-  href: "sp-program",
+  href: "/sp-program",
 },{
   label: "出展者一覧",
-  href: "exhibitor",
+  href: "/exhibitor",
 },{
   label: "商品一覧",
-  href: "product",
+  href: "/product",
 }]
 
 export const outline = {
