@@ -1,4 +1,3 @@
-import Contact from "@/components/section/Contact";
 import MainVisual from "@/components/section/MainVisual";
 import News from "@/components/section/News";
 import Outline from "@/components/section/Outline";

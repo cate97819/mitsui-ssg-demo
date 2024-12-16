@@ -13,7 +13,7 @@ export const HeaderMenu = (index: number) => {
     <></>
   ),(
     // 出展者一覧
-    <div
+    <div key={2}
       style={{ maxWidth: siteConfig.contentsWidth }}
       className="w-full mx-auto p-4 flex flex-col gap-1"
     >
@@ -85,7 +85,7 @@ export const HeaderMenu = (index: number) => {
     </div>
   ),(
     // 商品一覧
-    <div
+    <div  key={3}
       style={{ maxWidth: siteConfig.contentsWidth }}
       className="w-full mx-auto p-4 flex flex-col gap-1"
     >
@@ -106,7 +106,7 @@ export const HeaderMenu = (index: number) => {
               </span>
               <ul className='flex flex-row flex-wrap gap-x-2 gap-y-1'>
                 {["調味料","食用油","スプレッド類","乳製品","調理品","スープ","冷凍食品","缶詰","粉類","ホームメイキング材料","麺類","パン・シリアル類","穀物","加工肉類","練り製品","漬物・佃煮","水物","惣菜類","農産乾物","加工水産","その他加工食品"].map((item, i) => (
-                  <li key={i} className='text-xs text-slate-800'>#{item}</li>
+                  <li key={i} className='text-xs text-slate-500'>#{item}</li>
                 ))}
               </ul>
             </li>
@@ -117,7 +117,7 @@ export const HeaderMenu = (index: number) => {
               </span>
               <ul className='flex flex-row flex-wrap gap-x-2 gap-y-1'>
                 {["水産","畜産","農産","その他生鮮食品"].map((item, i) => (
-                  <li key={i} className='text-xs text-slate-800'>#{item}</li>
+                  <li key={i} className='text-xs text-slate-500'>#{item}</li>
                 ))}
               </ul>
             </li>
@@ -128,7 +128,7 @@ export const HeaderMenu = (index: number) => {
               </span>
               <ul className='flex flex-row flex-wrap gap-x-2 gap-y-1'>
                 {["菓子","デザート・ヨーグルト","珍味","アイスクリーム類","その他菓子類"].map((item, i) => (
-                  <li key={i} className='text-xs text-slate-800'>#{item}</li>
+                  <li key={i} className='text-xs text-slate-500'>#{item}</li>
                 ))}
               </ul>
             </li>
@@ -139,7 +139,7 @@ export const HeaderMenu = (index: number) => {
               </span>
               <ul className='flex flex-row flex-wrap gap-x-2 gap-y-1'>
                 {["嗜好飲料","果実飲料","清涼飲料","乳飲料"].map((item, i) => (
-                  <li key={i} className='text-xs text-slate-800'>#{item}</li>
+                  <li key={i} className='text-xs text-slate-500'>#{item}</li>
                 ))}
               </ul>
             </li>
@@ -150,7 +150,7 @@ export const HeaderMenu = (index: number) => {
               </span>
               <ul className='flex flex-row flex-wrap gap-x-2 gap-y-1'>
                 {["清酒","合成清酒","焼酎（甲類）","焼酎（乙類）","みりん","ビール","果実酒","甘味果実酒","ウィスキー","ブランデー","スピリッツ","スピリッツ（発泡性）","リキュール類","リキュール類（発泡性）","発泡酒","粉末種","その他雑酒","その他雑酒（発泡性）","その他アルコール類"].map((item, i) => (
-                  <li key={i} className='text-xs text-slate-800'>#{item}</li>
+                  <li key={i} className='text-xs text-slate-500'>#{item}</li>
                 ))}
               </ul>
             </li>
@@ -161,7 +161,7 @@ export const HeaderMenu = (index: number) => {
               </span>
               <ul className='flex flex-row flex-wrap gap-x-2 gap-y-1'>
                 {["乳幼児食品","健康食品"].map((item, i) => (
-                  <li key={i} className='text-xs text-slate-800'>#{item}</li>
+                  <li key={i} className='text-xs text-slate-500'>#{item}</li>
                 ))}
               </ul>
             </li>
@@ -172,7 +172,7 @@ export const HeaderMenu = (index: number) => {
               </span>
               <ul className='flex flex-row flex-wrap gap-x-2 gap-y-1'>
                 {["犬","猫","観賞魚","小鳥","小動物","昆虫","爬虫類・両生類","その他ペット"].map((item, i) => (
-                  <li key={i} className='text-xs text-slate-800'>#{item}</li>
+                  <li key={i} className='text-xs text-slate-500'>#{item}</li>
                 ))}
               </ul>
             </li>
