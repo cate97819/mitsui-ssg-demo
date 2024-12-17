@@ -4,7 +4,7 @@ import React from 'react'
 
 const Outline = () => {
   return (
-    <div>
+    <div className=' bg-slate-900 text-white'>
       <div style={{maxWidth: siteConfig.contentsWidth}} className='w-full mx-auto py-20'>
         <h2 className='flex flex-col gap-1 text-3xl font-bold border-b-2 py-2 mb-2 text-center'>
           開催概要

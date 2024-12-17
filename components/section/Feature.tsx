@@ -11,10 +11,10 @@ const Feature = () => {
     <div className="py-10 relative overflow-visible">
       <div
         style={{ maxWidth: siteConfig.contentsWidth + "px" }}
-        className="w-full mx-auto p-32 text-xl text-center shadow-2xl text-slate-700 rounded-full"
+        className="w-full mx-auto p-32 text-xl text-center shadow-2xl text-slate-900 rounded-full"
       >
         <img src="/images/logo.png" alt="" className="px-20 pb-20 max-w-[800px] mx-auto"/>
-        <p className="pb-20">
+        <p className="pb-20 font-[300] leading-10">
           「三井物産流通グループ
           フードショー」は三井物産流通グループ(株)が開催する食の総合展示会です。
           <br />
@@ -66,15 +66,15 @@ const Feature = () => {
           </div>
         </ScrollParallax>
       </div>
-      <div className="absolute top-[33em] left-1/2 translate-x-[35em]">
+      <div className="absolute top-[28em] left-1/2 translate-x-[35em]">
         <ScrollParallax strength={0.2}>
-          <div className="w-[120px] aspect-square rounded-full  bg-slate-300/60 blur-sm">        
+          <div className="w-[120px] aspect-square rounded-full  bg-slate-300/60 blur-none">        
           </div>
         </ScrollParallax>
       </div>
-      <div className="absolute top-[22em] left-1/2 -translate-x-[38em] -z-10">
+      <div className="absolute top-[22em] left-1/2 -translate-x-[36em] -z-10">
         <ScrollParallax strength={0.3}>
-          <div className="w-[60px] aspect-square rounded-full bg-slate-300/25 blur-none">        
+          <div className="w-[100px] aspect-square rounded-full bg-slate-300/25 blur-sm">        
           </div>
         </ScrollParallax>
       </div>
@@ -84,9 +84,9 @@ const Feature = () => {
           </div>
         </ScrollParallax>
       </div>
-      <div className="absolute top-[35em] left-1/2 -translate-x-[39em]">
-        <ScrollParallax strength={0.15}>
-          <div className="w-[120px] aspect-square rounded-full  bg-slate-300/80 blur-sm">        
+      <div className="absolute top-[47em] left-1/2 -translate-x-[54em]">
+        <ScrollParallax strength={0.25}>
+          <div className="w-[120px] aspect-square rounded-full  bg-slate-300/60 blur-none">        
           </div>
         </ScrollParallax>
       </div>

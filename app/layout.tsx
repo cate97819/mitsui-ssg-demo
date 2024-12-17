@@ -32,7 +32,7 @@ export default function RootLayout({
         <div className="grid grid-rows-[1fr_max-content] min-h-screen">
           <Header/>
           {children}
-          <Contact/>
+          {/* <Contact/> */}
           <Footer/>
         </div>
       </body>
