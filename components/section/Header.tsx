@@ -24,7 +24,7 @@ const Header = () => {
   }
 
   return (
-    <header className="fixed w-full top-0 left-0" onMouseLeave={setLeaveHandler}>
+    <header className="fixed w-full top-0 left-0 z-20" onMouseLeave={setLeaveHandler}>
       <div className="w-full z-10 shadow-md bg-white">
         <div
           style={{

@@ -14,6 +14,7 @@ const notoSansJP = Noto_Sans_JP({
 export const metadata: Metadata = {
   title: metaData.title,
   description: metaData.description,
+  robots: "noindex"
 };
 
 export default function RootLayout({
@@ -21,6 +22,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  
   return (
     <html lang="ja">
       <body
