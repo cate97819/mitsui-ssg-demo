@@ -65,7 +65,7 @@ const Header = () => {
             target="_blank"
             rel="noreferrer"
             style={{ height: siteConfig.headerHeight }}
-            className="flex items-center text-nowrap bg-[#D71517] border-[#D71517] border-[1px] hover:bg-white hover:text-[#D71517] text-white px-4 text-sm h-full font-bold transition-all ease-in-out"
+            className="flex items-center text-nowrap bg-red-800 border-red-800 border-[1px] hover:bg-white hover:text-red-800 text-white px-4 text-sm h-full font-bold transition-all ease-in-out"
             onMouseEnter={setHoverHandler}
           >
             来場登録はこちら

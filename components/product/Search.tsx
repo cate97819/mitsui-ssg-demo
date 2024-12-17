@@ -83,7 +83,7 @@ const Search = () => {
         setKeywordHandler={setKeywordHandler}
         searchQuery={searchQuery}
       />
-      <div className="bg-red-700 py-16">
+      <div className="bg-red-800 py-16">
         <h1
           style={{ maxWidth: siteConfig.contentsWidth }}
           className="flex flex-col text-2xl mx-auto w-full text-white gap-1 px-2"
