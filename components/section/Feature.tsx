@@ -1,9 +1,9 @@
 'use client'
 import { siteConfig } from "@/props/siteConfig";
-import React, { useEffect } from "react";
+import React from "react";
 import { Splide, SplideSlide } from '@splidejs/react-splide';
 import '@splidejs/react-splide/css';
-import { MouseParallax, ScrollParallax } from "react-just-parallax";
+import { ScrollParallax } from "react-just-parallax";
 
 const Feature = () => {
   

@@ -1,4 +1,3 @@
-import { headerItem } from "@/docs";
 import { siteConfig } from "@/props/siteConfig";
 
 export default function Home() {
