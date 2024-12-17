@@ -1,6 +1,5 @@
 'use client'
 import React from 'react'
-import '@splidejs/react-splide/css';
 
 const MainVisual = () => {
   return (

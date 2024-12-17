@@ -1,8 +1,8 @@
 'use client'
 import { siteConfig } from "@/props/siteConfig";
 import React from "react";
-import { Splide, SplideSlide } from '@splidejs/react-splide';
-import '@splidejs/react-splide/css';
+import { Splide, SplideSlide } from 'react-splide-ts';
+import "react-splide-ts/css";
 import { ScrollParallax } from "react-just-parallax";
 
 const Feature = () => {
