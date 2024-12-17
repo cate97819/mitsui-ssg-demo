@@ -1,9 +1,14 @@
-import Search from "@/components/exhibitor/Search";
 import { headerItem } from "@/docs";
 import { exhibitors } from "@/docs/exhibitor";
 import { siteConfig } from "@/props/siteConfig";
 
-export default async function Home({ params }: { params: Promise<{ exhibitorId: string}>}) {
+type Props = {
+  params: Promise<{
+    exhibitorId: string;
+  }>
+}
+
+export default async function Home({ params }: Props) {
 
   const { exhibitorId } = await params;
 

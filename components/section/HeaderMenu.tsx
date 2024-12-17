@@ -1,7 +1,6 @@
 import { headerItem } from '@/docs';
 import { exhibitorCategory } from '@/docs/exhibitor';
 import { siteConfig } from '@/props/siteConfig';
-import Link from 'next/link';
 import React from 'react'
 
 export const HeaderMenu = (index: number) => {

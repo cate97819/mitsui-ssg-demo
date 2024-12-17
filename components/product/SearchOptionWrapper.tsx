@@ -32,7 +32,7 @@ const SearchOptionWrapper = ({
           <div>
             <dt>キーワードで探す</dt>
             <dd>
-              <input type="text" onChange={setKeywordHandler}/>
+              <input type="text" value={searchQuery.keyword} onChange={setKeywordHandler}/>
             </dd>
           </div>
           <div>

@@ -1,10 +1,16 @@
-import type { Metadata } from "next";
 import { metaData } from "@/docs";
 import { exhibitors } from "@/docs/exhibitor";
-import { siteConfig } from "@/props/siteConfig";
 
-export const generateMetadata = async ({ params }: { params: { exhibitorId: string } }): Promise<Metadata> => {
+type Props = {
+  children: React.ReactNode;
+  params: Promise<{
+    exhibitorId: string;
+  }>
+}
+
+export const generateMetadata = async ({ params }: Props) => {
   const { exhibitorId } = await params;
+  console.log(exhibitorId);
 
   const target = exhibitors.find((item) => {
     return exhibitorId === item.id;

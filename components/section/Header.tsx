@@ -1,7 +1,6 @@
 "use client";
 import { headerItem, metaData } from "@/docs";
 import { siteConfig } from "@/props/siteConfig";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import HeaderItem from "../ui/HeaderItem";
@@ -9,6 +8,7 @@ import { HeaderMenu } from "./HeaderMenu";
 
 const Header = () => {
   const pathName = usePathname();
+  console.log(pathName);
 
   const [hover, setHover] = useState<number | null>(null);
 
