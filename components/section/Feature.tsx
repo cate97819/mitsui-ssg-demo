@@ -41,13 +41,13 @@ const Feature = () => {
           <img src="/images/image3.jpg" alt="" className="rounded-xl"/>
         </SplideSlide>
         <SplideSlide>
-          <img src="/images/image4.jpeg" alt="" className="rounded-xl"/>
+          <img src="/images/image4.jpg" alt="" className="rounded-xl"/>
         </SplideSlide>
       </Splide>
       </div>
       <div className="absolute top-20 left-1/2 translate-x-[30em]">
         <ScrollParallax strength={0.07}>
-          <img src="/images/image4.jpeg" alt="" className="max-w-[300px] rounded-full aspect-square shadow-lg border-slate-400 border-4 bg-white opacity-60"/>
+          <img src="/images/image4.jpg" alt="" className="max-w-[300px] rounded-full aspect-square shadow-lg border-slate-400 border-4 bg-white opacity-60"/>
         </ScrollParallax>
       </div>
       <div className="absolute top-80 left-1/2 -translate-x-[55em]">
