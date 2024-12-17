@@ -11,7 +11,7 @@ const Feature = () => {
     <div className="py-10 relative overflow-visible">
       <div
         style={{ maxWidth: siteConfig.contentsWidth + "px" }}
-        className="w-full mx-auto bg-gradient-to-tr from-gray-50 to-gray-200 p-32 text-xl text-center shadow-lg text-slate-700 rounded-xl"
+        className="w-full mx-auto p-32 text-xl text-center shadow-2xl text-slate-700 rounded-full"
       >
         <img src="/images/logo.png" alt="" className="px-20 pb-20 max-w-[800px] mx-auto"/>
         <p className="pb-20">
