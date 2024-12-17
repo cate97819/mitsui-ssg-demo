@@ -4,7 +4,6 @@ import "./globals.css";
 import { metaData } from "@/docs";
 import Header from "@/components/section/Header";
 import Footer from "@/components/section/Footer";
-import Contact from "@/components/section/Contact";
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
