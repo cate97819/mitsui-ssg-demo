@@ -62,25 +62,31 @@ const Feature = () => {
       </div>
       <div className="absolute top-[13em] left-1/2 -translate-x-[32em]">
         <ScrollParallax strength={0.25}>
-          <div className="w-[80px] aspect-square rounded-full bg-slate-300/80">        
+          <div className="w-[80px] aspect-square rounded-full bg-slate-300/40 blur-sm">        
           </div>
         </ScrollParallax>
       </div>
       <div className="absolute top-[33em] left-1/2 translate-x-[35em]">
         <ScrollParallax strength={0.2}>
-          <div className="w-[120px] aspect-square rounded-full  bg-slate-300/80">        
+          <div className="w-[120px] aspect-square rounded-full  bg-slate-300/60 blur-sm">        
           </div>
         </ScrollParallax>
       </div>
-      <div className="absolute top-[30em] left-1/2 translate-x-[34em]">
+      <div className="absolute top-[22em] left-1/2 -translate-x-[38em] -z-10">
         <ScrollParallax strength={0.3}>
-          <div className="w-[40px] aspect-square rounded-full bg-slate-300/80">        
+          <div className="w-[60px] aspect-square rounded-full bg-slate-300/25 blur-none">        
+          </div>
+        </ScrollParallax>
+      </div>
+      <div className="absolute top-[50em] left-1/2 -translate-x-[40em] -z-10">
+        <ScrollParallax strength={0.3}>
+          <div className="w-[40px] aspect-square rounded-full bg-slate-300/25 blur-none">        
           </div>
         </ScrollParallax>
       </div>
       <div className="absolute top-[35em] left-1/2 -translate-x-[39em]">
         <ScrollParallax strength={0.15}>
-          <div className="w-[120px] aspect-square rounded-full  bg-slate-300/80">        
+          <div className="w-[120px] aspect-square rounded-full  bg-slate-300/80 blur-sm">        
           </div>
         </ScrollParallax>
       </div>
