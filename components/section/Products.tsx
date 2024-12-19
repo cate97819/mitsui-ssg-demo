@@ -23,8 +23,8 @@ const Products = () => {
         <ul className='grid grid-cols-5 py-4 gap-4'>
           {data.map((item, i) => (
             <li key={i} className='p-4 shadow-md hover:shadow-xl transition-all ease-in-out duration-300'>
-              <Link href={`/exhibitor/${item.id}`}>
-                <img src={`/images/exhibitors/${item.id}.png`} alt={item.name} className=' aspect-video object-contain p-4'/>
+              <Link href={`/product/${item.id}`}>
+                <img src={`/images/products/${item.id}.png`} alt={item.name} className=' aspect-video object-contain p-4'/>
                 <span className='text-sm'>
                   {item.name}
                 </span>

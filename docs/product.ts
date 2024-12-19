@@ -16,6 +16,7 @@ export type Product = {
   description: string,
   categoryId: number[],
   smallCategoryId: number[],
+  exhibitorId: string,
 }
 
 export const productCategory: ProductCategory[] = [{
@@ -308,10 +309,12 @@ export const products: Product[] = [{
   description: "芳醇なバターとほろ苦いキャラメル、まろやかな味わいの岩塩によるコクと風味がやみつきになるソースです。液状なので溶かしバターのようにかける、塗る、和えるなど様々な用途に役立ちます。スイーツはもちろん、焼成時に照りつやが出るのでベーカリーにもおすすめです。",
   categoryId: [0],
   smallCategoryId: [0],
+  exhibitorId: "Pqxl3Bb38n"
 },{
   id: "7XYGoJ9gP7",
   name: "じっくり煮込んだ豚の角煮",
   description: "豚バラ肉をじっくり煮込んで旨味を引き出しました。甘めのしょうゆだれをきかせた、食べやすい和風の味付けです。電子レンジまたは湯せんで解凍できる便利な使い切りタイプです。",
   categoryId: [0],
   smallCategoryId: [6],
+  exhibitorId: "Pqxl3Bb38n"
 }]
