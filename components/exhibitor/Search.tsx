@@ -7,6 +7,8 @@ import { exhibitorSearch } from '@/libs/search';
 import CategoryLabel from './CategoryLabel';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { Favorite, useLocalStorage } from '@/libs/localStorage';
+import FavoriteButton from '../ui/FavoriteButton';
 
 const Search = () => {
 
@@ -23,6 +25,23 @@ const Search = () => {
     isEcology: false, 
   })
   const [exhibitorList, setExhibitorList] = useState(exhibitors);
+
+  const initFavoriteArray: Favorite[] = [];
+  exhibitors.map((item) => initFavoriteArray.push({id: item.id, isFavorite: false}));
+
+  // お気に入り機能
+  const [favorite, setFavorite] = useLocalStorage("exhibitorFavorite", initFavoriteArray);
+
+  const setFavoriteHandler = (e: React.MouseEvent<HTMLButtonElement>): void => {
+    const target = e.currentTarget.value;
+    let ary: Favorite[] = [];
+    favorite.map((item:Favorite) => item.id === target ? ary.push({id: target, isFavorite: !item.isFavorite}) : ary.push(item));
+    setFavorite(ary);
+  }
+
+  useEffect(() => {
+
+  },[favorite])
 
   const setOptionHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.currentTarget.id;
@@ -135,7 +154,8 @@ const Search = () => {
       </div>
       <div style={{width: siteConfig.contentsWidth + "px"}} className='grid grid-cols-2 mx-auto gap-4'>
         {exhibitorList.map((item, i) => (
-          <div key={i} className='p-4 border-2 rounded-lg flex flex-col gap-2'>
+          <div key={i} className='relative p-4 border-2 rounded-lg flex flex-col gap-2'>
+            <FavoriteButton id={item.id} favorite={favorite} setFavoriteHandler={setFavoriteHandler}/>
             <div className='grid grid-cols-[30%_1fr] gap-4 '>
               <div className='w-full aspect-video bg-slate-700'></div>
               <div>

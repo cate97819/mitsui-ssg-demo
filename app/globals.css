@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.clip {
+  -webkit-mask-image: url(/images/favorite-icon.svg); /* SVGのパス */
+  -webkit-mask-repeat: no-repeat; /* 切り抜き表示する回数 */
+  -webkit-mask-position: top center; /* 切り抜き表示する位置 */
+  -webkit-mask-size: contain; /* 切り抜き表示するサイズ */
+}
