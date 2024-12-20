@@ -18,11 +18,12 @@ const Search = () => {
   const category = searchParams.get("cat");
 
   const [viewSearchOption, setViewSearchOption] = useState(false);
-  const [searchQuery, setSearchQuery] = useState<{keyword: string, zone: number[], isExport: boolean, isEcology: boolean}>({
+  const [searchQuery, setSearchQuery] = useState<{keyword: string, zone: number[], isExport: boolean, isEcology: boolean, favoriteFilter: boolean}>({
     keyword: "",
     zone: [],
     isExport: false,
     isEcology: false, 
+    favoriteFilter: false,
   })
   const [exhibitorList, setExhibitorList] = useState(exhibitors);
 
@@ -51,6 +52,8 @@ const Search = () => {
       break;
       case "ecology" :
       setSearchQuery(prev => ({...prev, isEcology: !prev.isEcology}));
+      case "favorite" :
+      setSearchQuery(prev => ({...prev, favoriteFilter: !prev.favoriteFilter}));
       break;
     }
   }
@@ -113,7 +116,7 @@ const Search = () => {
   },[category])
 
   useEffect(() => {
-    const array = exhibitorSearch(exhibitors, searchQuery.keyword, searchQuery.zone, searchQuery.isExport, searchQuery.isEcology);
+    const array = exhibitorSearch(exhibitors, searchQuery.keyword, searchQuery.zone, searchQuery.isExport, searchQuery.isEcology, searchQuery.favoriteFilter , favorite);
     setExhibitorList(array);
   },[searchQuery])
 

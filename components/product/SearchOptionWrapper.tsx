@@ -16,7 +16,7 @@ const SearchOptionWrapper = ({
   searchQuery
 }: Props) => {
   return (
-    <div onClick={setViewSearchOptionHandler} style={{visibility: viewSearchOption ? "visible" : "hidden"}} className="fixed top-0 left-0 bg-black/30 w-full h-screen">
+    <div onClick={setViewSearchOptionHandler} style={{visibility: viewSearchOption ? "visible" : "hidden"}} className="fixed top-0 left-0 bg-black/30 w-full h-screen z-20">
       <div
         style={{ right: viewSearchOption ? "0px" : "-20rem" }}
         className="fixed top-0 -right-80 h-screen bg-[#F6F3F1] shadow-lg px-8 py-16 border-l-2 w-80 transition-all ease-in-out"
