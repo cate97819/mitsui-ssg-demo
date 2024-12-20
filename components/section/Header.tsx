@@ -31,7 +31,7 @@ const Header = () => {
             maxWidth: siteConfig.contentsWidth + "px",
             maxHeight: siteConfig.headerHeight + "px",
           }}
-          className="w-full mx-auto flex flex-row items-center gap-6"
+          className="w-full mx-auto flex flex-row items-center justify-between gap-6"
           
         >
           <h1>
@@ -49,7 +49,7 @@ const Header = () => {
               />
             </a>
           </h1>
-          <ul className="flex flex-row justify-end w-full text-sm font-bold gap-8 pt-0.5">
+          <ul className="hidden md:flex flex-row justify-end w-full text-sm font-bold gap-8 pt-0.5">
             {headerItem.map((item, i) => (
               <HeaderItem
                 key={i}

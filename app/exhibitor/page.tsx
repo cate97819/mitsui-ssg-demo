@@ -4,7 +4,7 @@ import { Suspense } from "react";
 
 export default function Home() {
   return (
-  <div style={{marginTop: siteConfig.headerHeight + "px"}}>
+  <div style={{marginTop: siteConfig.headerHeight + "px"}} className="w-full">
     <Suspense>
       <Search/>
     </Suspense>

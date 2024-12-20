@@ -8,18 +8,18 @@ import { ScrollParallax } from "react-just-parallax";
 const Feature = () => {
   
   return (
-    <div className="py-10 relative overflow-visible">
+    <div className="py-10 relative overflow-clip w-full">
       <div
         style={{ maxWidth: siteConfig.contentsWidth + "px" }}
-        className="w-full mx-auto p-32 text-xl text-center shadow-2xl text-slate-900 rounded-full"
+        className="w-full flex-col items-center mx-auto lg:p-32 text-center shadow-2xl aspect-square text-slate-900 rounded-full"
       >
-        <img src="/images/logo.png" alt="" className="px-20 pb-20 max-w-[800px] mx-auto"/>
-        <p className="pb-20 font-[300] leading-10">
+        <img src="/images/logo.png" alt="" className="px-20 pb-20 max-w-[800px] w-full mx-auto"/>
+        <p className="pb-20 font-[300] leading-7 md:leading-10 w-full text-sm md:text-xl px-4">
           「三井物産流通グループ
           フードショー」は三井物産流通グループ(株)が開催する食の総合展示会です。
           <br />
           出展メーカー約500社の新商品に加え、当社オリジナル商品や食のトレンドが
-          <br />
+          <br className="hidden md:block"/>
           一堂に集結し、全国よりご来場いただく多数の小売業・飲食業様との
           <br />
           出会いの場となっております。
@@ -30,7 +30,7 @@ const Feature = () => {
           <br />
           取り扱う幅広い食品カテゴリーから、魅力ある提案をお届け致します。
         </p>
-        <Splide data-splide='{"type":"loop","autoplay":"true","perPage":"3","gap":"1em"}' aria-label="お気に入りの写真" className='w-full max-h-[650px] object-cover overflow-clip max-w-[800px] mx-auto'>
+        <Splide data-splide='{"type":"loop","autoplay":"true","perPage":"3","gap":"1em"}' aria-label="お気に入りの写真" className='w-full max-h-[650px] object-cover max-w-[800px] mx-auto'>
         <SplideSlide>
           <img src="/images/image1.jpg" alt="" className="rounded-xl"/>
         </SplideSlide>

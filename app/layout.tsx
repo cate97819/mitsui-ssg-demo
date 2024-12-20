@@ -28,7 +28,7 @@ export default function RootLayout({
       <body
         className={`${notoSansJP.className} antialiased`}
       >
-        <div className="grid grid-rows-[1fr_max-content] min-h-screen">
+        <div className="grid grid-rows-[1fr_max-content] min-h-screen w-full">
           <Header/>
           {children}
           {/* <Contact/> */}

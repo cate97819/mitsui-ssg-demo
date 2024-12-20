@@ -6,7 +6,7 @@ const MainVisual = () => {
     // <div className='min-h-[600px] w-full bg-slate-200 text-white flex flex-col items-center justify-center'>
     //   <img src="/images/logo.png" alt="" className='w-full max-w-[800px] px-4'/>
     // </div>
-    <div className='relative'>
+    <div className='relative w-full'>
       <div className='bg-slate-300 min-h-[650px] flex flex-row items-center justify-center'>
         {/* <img src="/images/logo.png" alt="" className='max-w-[800px] drop-shadow-xl'/> */}
       </div>

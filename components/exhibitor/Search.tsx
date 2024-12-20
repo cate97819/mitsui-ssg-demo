@@ -2,13 +2,17 @@
 import React, { useEffect, useState } from 'react'
 import SearchOptionWrapper from './SearchOptionWrapper'
 import { siteConfig } from '@/props/siteConfig';
-import { exhibitorCategory, exhibitors } from '@/docs/exhibitor';
+import { Exhibitor, exhibitorCategory, exhibitors } from '@/docs/exhibitor';
 import { exhibitorSearch } from '@/libs/search';
 import CategoryLabel from './CategoryLabel';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { Favorite, useLocalStorage } from '@/libs/localStorage';
 import FavoriteButton from '../ui/FavoriteButton';
+
+type ExhibitorData = {
+  isFavorite: boolean;
+} & Exhibitor
 
 const Search = () => {
 
@@ -25,12 +29,17 @@ const Search = () => {
     isEcology: false, 
     favoriteFilter: false,
   })
-  const [exhibitorList, setExhibitorList] = useState(exhibitors);
 
+  const exhibitorData: ExhibitorData[] = [];
+  exhibitors.map((item) => exhibitorData.push({...item, isFavorite: false}));
+  
+  const [exhibitorList, setExhibitorList] = useState(exhibitorData);
+
+  
+  // お気に入り機能
   const initFavoriteArray: Favorite[] = [];
   exhibitors.map((item) => initFavoriteArray.push({id: item.id, isFavorite: false}));
 
-  // お気に入り機能
   const [favorite, setFavorite] = useLocalStorage("exhibitorFavorite", initFavoriteArray);
 
   const setFavoriteHandler = (e: React.MouseEvent<HTMLButtonElement>): void => {
@@ -38,11 +47,23 @@ const Search = () => {
     const ary: Favorite[] = [];
     favorite.map((item:Favorite) => item.id === target ? ary.push({id: target, isFavorite: !item.isFavorite}) : ary.push(item));
     setFavorite(ary);
+    const listArray: ExhibitorData[] = [];
+    exhibitorList.map((item) => item.id === target ? listArray.push({...item, id: target, isFavorite: !item.isFavorite}) : listArray.push(item));
+    setExhibitorList(listArray);
   }
 
   useEffect(() => {
-
+    const targetArray: string[] = [];
+    const target = favorite.map((item) => item.isFavorite === true && targetArray.push(item.id));
+    const array: ExhibitorData[] = [];
+    exhibitorList.map((item) => target.includes(item) ? array.push({...item, id: item.id, isFavorite: true}) : array.push({...item, id: item.id, isFavorite: false}));
+    setExhibitorList(array);
   },[favorite])
+
+  useEffect(() => {
+    console.log(exhibitorList);
+
+  }, [exhibitorList])
 
   const setOptionHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.currentTarget.id;
@@ -116,12 +137,12 @@ const Search = () => {
   },[category])
 
   useEffect(() => {
-    const array = exhibitorSearch(exhibitors, searchQuery.keyword, searchQuery.zone, searchQuery.isExport, searchQuery.isEcology, searchQuery.favoriteFilter , favorite);
+    const array = exhibitorSearch(exhibitors, searchQuery.keyword, searchQuery.zone, searchQuery.isExport, searchQuery.isEcology, searchQuery.favoriteFilter, favorite);
     setExhibitorList(array);
   },[searchQuery])
 
   return (
-    <div>
+    <div className='w-full'>
       <SearchOptionWrapper viewSearchOption={viewSearchOption} setViewSearchOptionHandler={setViewSearchOptionHandler} setOptionHandler={setOptionHandler} setKeywordHandler={setKeywordHandler} searchQuery={searchQuery}/>
       <div className='bg-red-800 py-16'>
         <h1 style={{maxWidth: siteConfig.contentsWidth}} className='flex flex-col text-2xl mx-auto w-full text-white gap-1 px-2'>
@@ -129,36 +150,34 @@ const Search = () => {
           <span className='text-sm px-0.5'>EXHIBITOR</span>
         </h1>
       </div>
-      <div style={{maxWidth: siteConfig.contentsWidth + "px"}} className='mx-auto w-full flex flex-row justify-center items-center'>
-        <ul className='flex flex-row text-sm gap-4 py-4 justify-center'>
+      <div style={{maxWidth: siteConfig.contentsWidth + "px"}} className='text-xs md:text-base grid grid-cols-[max-content_1fr_max-content] mx-auto w-fit flex-row justify-center items-center gap-4 px-2'>
           { searchQuery.zone.length === 0 ?
-            <li>
-              <div className='border-[2px] rounded-full px-2 border-[#D71517] bg-[#D71517] text-white py-0.5'>ALL</div>
-            </li>
+            <div className='border-[2px] rounded-full px-2 border-[#D71517] bg-[#D71517] text-white py-0.5'>ALL</div>
           :
-            <li>
-              <button id='reset' className='border-[2px] border-slate-300 text-slate-800 hover:bg-slate-100 rounded-full px-2 py-0.5 transition-all ease-in-out' onClick={setZoneHandler}>ALL</button>
-            </li>
+            <button id='reset' className='border-[2px] border-slate-300 text-slate-800 hover:bg-slate-100 rounded-full px-2 py-0.5 transition-all ease-in-out' onClick={setZoneHandler}>ALL</button>
           }
+        <ul className='flex flex-row gap-4 py-4 justify-center overflow-x-scroll'>
+          <span className='flex flex-row gap-2 overflow-x-scroll w-fit text-nowrap'>
           { exhibitorCategory.map((item, i) => (
-            <li key={i}>
+            <li key={i} className=''>
               {searchQuery.zone.includes(item.id) ? 
               <button id='change' value={item.id} className='border-[2px] rounded-full text-white border-[#D71517] bg-[#D71517] px-2 py-0.5 hover:bg-red-700 hover:border-red-700 transition-all ease-in-out' onClick={setZoneHandler}>{item.label}</button>
               :
               <button id='change' value={item.id} className='border-[2px] text-slate-800 border-slate-300 hover:bg-slate-100 rounded-full px-2 py-0.5 transition-all ease-in-out' onClick={setZoneHandler}>{item.label}</button>
-              }
+            }
             </li>
           ))}
+          </span>
         </ul>
-        <button onClick={setViewSearchOptionHandler} className='mx-4 text-white bg-[#D71517] rounded-full flex flex-row px-4 pb-0.5 items-center text-sm hover:bg-red-800 transition-all ease-in-out'>
+        <button onClick={setViewSearchOptionHandler} className='text-white bg-[#D71517] rounded-full flex flex-row px-4 pb-0.5 items-center hover:bg-red-800 transition-all ease-in-out'>
           詳細検索
-          <img src="/images/search.svg" alt="" className='w-8 p-1 '/>
+          <img src="/images/search.svg" alt="" className='max-w-8'/>
         </button>
       </div>
-      <div style={{width: siteConfig.contentsWidth + "px"}} className='grid grid-cols-2 mx-auto gap-4'>
+      <div style={{maxWidth: siteConfig.contentsWidth + "px"}} className='grid grid-cols-1 md:grid-cols-2 mx-auto gap-4 w-full'>
         {exhibitorList.map((item, i) => (
           <div key={i} className='relative p-4 border-2 rounded-lg flex flex-col gap-2'>
-            <FavoriteButton id={item.id} favorite={favorite} setFavoriteHandler={setFavoriteHandler}/>
+            {/* <FavoriteButton id={item.id} item={item} setFavoriteHandler={setFavoriteHandler}/> */}
             <div className='grid grid-cols-[30%_1fr] gap-4 '>
               <Link href={`/exhibitor/${item.id}`}>
                 <img src={`/images/exhibitors/${item.id}.png`} alt="" className='w-full aspect-video'/>

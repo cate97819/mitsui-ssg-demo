@@ -22,13 +22,13 @@ const SectionWrapper = () => {
       smoothWheel: true,
       easing: easeOutQuart,
     }}>
-      <div style={{marginTop: siteConfig.headerHeight + "px"}}>
+      <div style={{marginTop: siteConfig.headerHeight + "px"}} className='w-full'>
         <MainVisual/>
         <Feature/>
         <Exhibitors/>
         <Products/>
         <News/>
-        <Outline/>
+        {/* <Outline/> */}
       </div>
     </ReactLenis>
   )
