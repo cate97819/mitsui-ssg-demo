@@ -6,7 +6,7 @@ import Feature from './Feature'
 import Exhibitors from './Exhibitors'
 import Products from './Products'
 import News from './News'
-import Outline from './Outline'
+// import Outline from './Outline'
 import { siteConfig } from '@/props/siteConfig'
 
 const SectionWrapper = () => {

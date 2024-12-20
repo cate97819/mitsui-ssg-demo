@@ -2,17 +2,17 @@
 import React, { useEffect, useState } from 'react'
 import SearchOptionWrapper from './SearchOptionWrapper'
 import { siteConfig } from '@/props/siteConfig';
-import { Exhibitor, exhibitorCategory, exhibitors } from '@/docs/exhibitor';
+import { exhibitorCategory, exhibitors } from '@/docs/exhibitor';
 import { exhibitorSearch } from '@/libs/search';
 import CategoryLabel from './CategoryLabel';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { Favorite, useLocalStorage } from '@/libs/localStorage';
-import FavoriteButton from '../ui/FavoriteButton';
+// import { Favorite, useLocalStorage } from '@/libs/localStorage';
+// import FavoriteButton from '../ui/FavoriteButton';
 
-type ExhibitorData = {
-  isFavorite: boolean;
-} & Exhibitor
+// type ExhibitorData = {
+//   isFavorite: boolean;
+// } & Exhibitor
 
 const Search = () => {
 
@@ -30,40 +30,40 @@ const Search = () => {
     favoriteFilter: false,
   })
 
-  const exhibitorData: ExhibitorData[] = [];
-  exhibitors.map((item) => exhibitorData.push({...item, isFavorite: false}));
+  // const exhibitorData: ExhibitorData[] = [];
+  // exhibitors.map((item) => exhibitorData.push({...item, isFavorite: false}));
   
-  const [exhibitorList, setExhibitorList] = useState(exhibitorData);
+  const [exhibitorList, setExhibitorList] = useState(exhibitors);
 
   
   // お気に入り機能
-  const initFavoriteArray: Favorite[] = [];
-  exhibitors.map((item) => initFavoriteArray.push({id: item.id, isFavorite: false}));
+  // const initFavoriteArray: Favorite[] = [];
+  // exhibitors.map((item) => initFavoriteArray.push({id: item.id, isFavorite: false}));
 
-  const [favorite, setFavorite] = useLocalStorage("exhibitorFavorite", initFavoriteArray);
+  // const [favorite, setFavorite] = useLocalStorage("exhibitorFavorite", initFavoriteArray);
 
-  const setFavoriteHandler = (e: React.MouseEvent<HTMLButtonElement>): void => {
-    const target = e.currentTarget.value;
-    const ary: Favorite[] = [];
-    favorite.map((item:Favorite) => item.id === target ? ary.push({id: target, isFavorite: !item.isFavorite}) : ary.push(item));
-    setFavorite(ary);
-    const listArray: ExhibitorData[] = [];
-    exhibitorList.map((item) => item.id === target ? listArray.push({...item, id: target, isFavorite: !item.isFavorite}) : listArray.push(item));
-    setExhibitorList(listArray);
-  }
+  // const setFavoriteHandler = (e: React.MouseEvent<HTMLButtonElement>): void => {
+  //   const target = e.currentTarget.value;
+  //   const ary: Favorite[] = [];
+  //   favorite.map((item:Favorite) => item.id === target ? ary.push({id: target, isFavorite: !item.isFavorite}) : ary.push(item));
+  //   setFavorite(ary);
+  //   const listArray: ExhibitorData[] = [];
+  //   exhibitorList.map((item) => item.id === target ? listArray.push({...item, id: target, isFavorite: !item.isFavorite}) : listArray.push(item));
+  //   setExhibitorList(listArray);
+  // }
 
-  useEffect(() => {
-    const targetArray: string[] = [];
-    const target = favorite.map((item) => item.isFavorite === true && targetArray.push(item.id));
-    const array: ExhibitorData[] = [];
-    exhibitorList.map((item) => target.includes(item) ? array.push({...item, id: item.id, isFavorite: true}) : array.push({...item, id: item.id, isFavorite: false}));
-    setExhibitorList(array);
-  },[favorite])
+  // useEffect(() => {
+  //   const targetArray: string[] = [];
+  //   const target = favorite.map((item) => item.isFavorite === true && targetArray.push(item.id));
+  //   const array: ExhibitorData[] = [];
+  //   exhibitorList.map((item) => target.includes(item) ? array.push({...item, id: item.id, isFavorite: true}) : array.push({...item, id: item.id, isFavorite: false}));
+  //   setExhibitorList(array);
+  // },[favorite])
 
-  useEffect(() => {
-    console.log(exhibitorList);
+  // useEffect(() => {
+  //   console.log(exhibitorList);
 
-  }, [exhibitorList])
+  // }, [exhibitorList])
 
   const setOptionHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const target = e.currentTarget.id;
@@ -137,7 +137,7 @@ const Search = () => {
   },[category])
 
   useEffect(() => {
-    const array = exhibitorSearch(exhibitors, searchQuery.keyword, searchQuery.zone, searchQuery.isExport, searchQuery.isEcology, searchQuery.favoriteFilter, favorite);
+    const array = exhibitorSearch(exhibitors, searchQuery.keyword, searchQuery.zone, searchQuery.isExport, searchQuery.isEcology, searchQuery.favoriteFilter);
     setExhibitorList(array);
   },[searchQuery])
 

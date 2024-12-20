@@ -2,7 +2,7 @@ import { Exhibitor } from "@/docs/exhibitor";
 import { Product } from "@/docs/product";
 import { Favorite } from "./localStorage";
 
-export const exhibitorSearch = (data: Exhibitor[], keyword: string, categories: number[], exp: boolean, eco: boolean, setFavorite: boolean , favorite: Favorite[]) => {
+export const exhibitorSearch = (data: Exhibitor[], keyword: string, categories: number[], exp: boolean, eco: boolean, setFavorite: boolean) => {
 
   const keywordFilter = (data: Exhibitor[], keyword: string) => {
     return data.filter((item) => {
@@ -30,13 +30,13 @@ export const exhibitorSearch = (data: Exhibitor[], keyword: string, categories: 
     })
   }
 
-  const favoriteFilter = (data: Exhibitor[], favorite: Favorite[]) => {
-    const favoriteArray = favorite.filter((item) => item.isFavorite === true);
-    const ids: string[] = [];
-    favoriteArray.map((item) => ids.push(item.id));
-    const newArray = data.filter((item) => ids.includes(item.id));
-    return newArray;
-  }
+  // const favoriteFilter = (data: Exhibitor[], favorite: Favorite[]) => {
+  //   const favoriteArray = favorite.filter((item) => item.isFavorite === true);
+  //   const ids: string[] = [];
+  //   favoriteArray.map((item) => ids.push(item.id));
+  //   const newArray = data.filter((item) => ids.includes(item.id));
+  //   return newArray;
+  // }
 
   let newArray = data;
   if ( keyword ) {
@@ -51,10 +51,9 @@ export const exhibitorSearch = (data: Exhibitor[], keyword: string, categories: 
   if( eco ) {
     newArray = ecologyFilter(newArray);
   }
-  if ( setFavorite ) {
-    newArray = favoriteFilter(newArray, favorite);
-
-  }
+  // if ( setFavorite ) {
+  //   newArray = favoriteFilter(newArray, favorite);
+  // }
     return newArray;
 }
 
