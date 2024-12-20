@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-<<<<<<< HEAD
 .clip {
   -webkit-mask-image: url(/images/favorite-icon.svg); /* SVGのパス */
   -webkit-mask-repeat: no-repeat; /* 切り抜き表示する回数 */
   -webkit-mask-position: top center; /* 切り抜き表示する位置 */
   -webkit-mask-size: contain; /* 切り抜き表示するサイズ */
-=======
+}
+
 html.lenis, html.lenis body {
   height: auto;
 }
@@ -27,5 +27,4 @@ html.lenis, html.lenis body {
 
 .lenis.lenis-smooth iframe {
   pointer-events: none;
->>>>>>> f7c216d57534defa63ac1a2a676fe0bc771459f5
 }

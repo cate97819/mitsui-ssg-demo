@@ -34,7 +34,7 @@ const Search = () => {
 
   const setFavoriteHandler = (e: React.MouseEvent<HTMLButtonElement>): void => {
     const target = e.currentTarget.value;
-    let ary: Favorite[] = [];
+    const ary: Favorite[] = [];
     favorite.map((item:Favorite) => item.id === target ? ary.push({id: target, isFavorite: !item.isFavorite}) : ary.push(item));
     setFavorite(ary);
   }
