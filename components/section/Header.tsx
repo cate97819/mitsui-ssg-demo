@@ -1,7 +1,6 @@
 "use client";
 import { headerItem, metaData } from "@/docs";
 import { siteConfig } from "@/props/siteConfig";
-import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import HeaderItem from "../ui/HeaderItem";
@@ -9,6 +8,7 @@ import { HeaderMenu } from "./HeaderMenu";
 
 const Header = () => {
   const pathName = usePathname();
+  console.log(pathName);
 
   const [hover, setHover] = useState<number | null>(null);
 
@@ -24,7 +24,7 @@ const Header = () => {
   }
 
   return (
-    <header className="fixed w-full top-0 left-0" onMouseLeave={setLeaveHandler}>
+    <header className="fixed w-full top-0 left-0 z-20" onMouseLeave={setLeaveHandler}>
       <div className="w-full z-10 shadow-md bg-white">
         <div
           style={{
@@ -65,7 +65,7 @@ const Header = () => {
             target="_blank"
             rel="noreferrer"
             style={{ height: siteConfig.headerHeight }}
-            className="flex items-center text-nowrap bg-[#D71517] border-[#D71517] border-[1px] hover:bg-white hover:text-[#D71517] text-white px-4 text-sm h-full font-bold transition-all ease-in-out"
+            className="flex items-center text-nowrap bg-red-800 border-red-800 border-[1px] hover:bg-white hover:text-red-800 text-white px-4 text-sm h-full font-bold transition-all ease-in-out"
             onMouseEnter={setHoverHandler}
           >
             来場登録はこちら

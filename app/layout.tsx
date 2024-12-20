@@ -4,7 +4,6 @@ import "./globals.css";
 import { metaData } from "@/docs";
 import Header from "@/components/section/Header";
 import Footer from "@/components/section/Footer";
-import Contact from "@/components/section/Contact";
 
 const notoSansJP = Noto_Sans_JP({
   subsets: ["latin"],
@@ -14,6 +13,7 @@ const notoSansJP = Noto_Sans_JP({
 export const metadata: Metadata = {
   title: metaData.title,
   description: metaData.description,
+  robots: "noindex"
 };
 
 export default function RootLayout({
@@ -21,6 +21,8 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  
   return (
     <html lang="ja">
       <body
@@ -29,7 +31,7 @@ export default function RootLayout({
         <div className="grid grid-rows-[1fr_max-content] min-h-screen">
           <Header/>
           {children}
-          <Contact/>
+          {/* <Contact/> */}
           <Footer/>
         </div>
       </body>

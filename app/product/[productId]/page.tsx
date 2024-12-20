@@ -1,19 +1,19 @@
 import { headerItem } from "@/docs";
-import { exhibitors } from "@/docs/exhibitor";
+import { products } from "@/docs/product";
 import { siteConfig } from "@/props/siteConfig";
 
 type Props = {
   params: Promise<{
-    exhibitorId: string;
+    productId: string;
   }>
 }
 
 export default async function Home({ params }: Props) {
 
-  const { exhibitorId } = await params;
+  const { productId } = await params;
 
-  const target = exhibitors.find((item) => {
-    return exhibitorId === item.id;
+  const target = products.find((item) => {
+    return productId === item.id;
   })
 
   return (
@@ -33,7 +33,7 @@ export default async function Home({ params }: Props) {
 }
 
 export function generateStaticParams() {
-  return exhibitors.map((item) => ({
-    exhibitorId: item.id,
+  return products.map((item) => ({
+    productId: item.id,
   }));
 }

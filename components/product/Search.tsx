@@ -83,7 +83,7 @@ const Search = () => {
         setKeywordHandler={setKeywordHandler}
         searchQuery={searchQuery}
       />
-      <div className="bg-red-700 py-16">
+      <div className="bg-red-800 py-16">
         <h1
           style={{ maxWidth: siteConfig.contentsWidth }}
           className="flex flex-col text-2xl mx-auto w-full text-white gap-1 px-2"
@@ -153,12 +153,14 @@ const Search = () => {
         {productList.map((item, i) => (
           <div key={i} className="p-4 border-2 rounded-lg flex flex-col gap-2">
             <div className="grid grid-cols-[30%_1fr] gap-4 ">
-              <div className="w-full aspect-video bg-slate-700"></div>
+              <Link href={`/product/${item.id}`}>
+                <img src={`/images/products/${item.id}.png`} alt="" className="w-full aspect-video"/>
+              </Link>
               <div>
                 <h2 className="p-2 font-bold">
-                  <Link href={`/exhibitor/${item.id}`}>{item.name}</Link>
+                  <Link href={`/product/${item.id}`}>{item.name}</Link>
                 </h2>
-                <Link href={`/exhibitor/${item.id}`}>
+                <Link href={`/product/${item.id}`}>
                   <p className="text-sm p-2">
                     {item.description.slice(0, 90)}…
                   </p>

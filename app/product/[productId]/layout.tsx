@@ -1,19 +1,20 @@
 import { metaData } from "@/docs";
-import { exhibitors } from "@/docs/exhibitor";
+import { products } from "@/docs/product";
 
 type Props = {
   children: React.ReactNode;
   params: Promise<{
-    exhibitorId: string;
+    productId: string;
   }>
 }
 
 export const generateMetadata = async ({ params }: Props) => {
-  const { exhibitorId } = await params;
-  console.log(exhibitorId);
+  const { productId } = await params;
+  console.log(productId);
 
-  const target = exhibitors.find((item) => {
-    return exhibitorId === item.id;
+  
+  const target = products.find((item) => {
+    return productId === item.id;
   })
 
   return {

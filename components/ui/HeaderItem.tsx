@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { usePathname } from 'next/navigation';
 import React from 'react'
 
@@ -23,7 +22,7 @@ const HeaderItem = ({index, item, setHoverHandler}: Props) => {
         <button id={index.toString()} className='px-2 text-slate-700' onMouseEnter={setHoverHandler}>
           {item.label}
         </button>
-        <span className='relative -bottom-1 h-0.5 w-full bg-[#D71517] block rounded-full'></span>
+        <span className='relative -bottom-1 h-0.5 w-full bg-red-800 block rounded-full'></span>
       </li>
     )
   }
@@ -34,7 +33,7 @@ const HeaderItem = ({index, item, setHoverHandler}: Props) => {
         <a id={index.toString()} href={item.href} onMouseEnter={setHoverHandler} className='px-2 group-hover:text-slate-700 transition-all ease-in-out'>
           {item.label}
         </a>
-        <span className='absolute left-1/2 -bottom-1 h-0.5 w-0 group-hover:w-full group-hover:left-0 bg-[#D71517] block transition-all ease-in-out rounded-full'></span>
+        <span className='absolute left-1/2 -bottom-1 h-0.5 w-0 group-hover:w-full group-hover:left-0 bg-red-800 block transition-all ease-in-out rounded-full'></span>
       </li>
     </>
   )

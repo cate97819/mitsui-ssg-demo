@@ -1,4 +1,3 @@
-import { exhibitorCategory } from '@/docs/exhibitor'
 import { productCategory } from '@/docs/product';
 import React from 'react'
 

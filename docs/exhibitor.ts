@@ -10,6 +10,7 @@ export type Exhibitor = {
   categoryId: number[],
   export: boolean,
   ecology: boolean,
+  productId: string[],
 }
 
 export const exhibitorCategory: ExhibitorCategory[] = [{
@@ -48,6 +49,7 @@ export const exhibitors: Exhibitor[] = [{
   categoryId: [2],
   export: false,
   ecology: true,
+  productId: ["oWsQ4FK8JQ", "7XYGoJ9gP7"],
 },{
   id: "RBV0TIMf3q",
   name: "サトウ食品株式会社",
@@ -55,6 +57,7 @@ export const exhibitors: Exhibitor[] = [{
   categoryId: [1],
   export: true,
   ecology: true,
+  productId: [],
 },{
   id: "IYnGVQQbgM",
   name: "中村食品産業株式会社",
@@ -62,6 +65,7 @@ export const exhibitors: Exhibitor[] = [{
   categoryId: [5],
   export: true,
   ecology: false,
+  productId: [],
 },{
   id: "eH5AkyNfPQ",
   name: "八鹿酒造株式会社",
@@ -69,6 +73,7 @@ export const exhibitors: Exhibitor[] = [{
   categoryId: [5],
   export: true,
   ecology: false,
+  productId: [],
 },{
   id: "7e12yhwBvS",
   name: "株式会社グリーンズ北見",
@@ -76,6 +81,7 @@ export const exhibitors: Exhibitor[] = [{
   categoryId: [7],
   export: true,
   ecology: true,
+  productId: [],
 },{
   id: "8tFp6coJxx",
   name: "株式会社3G CARE",
@@ -83,6 +89,7 @@ export const exhibitors: Exhibitor[] = [{
   categoryId: [2],
   export: false,
   ecology: false,
+  productId: [],
 },{
   id: "1dUg4rNaqF",
   name: "アサヒビール株式会社",
@@ -90,5 +97,6 @@ export const exhibitors: Exhibitor[] = [{
   categoryId: [4],
   export: false,
   ecology: false,
+  productId: [],
 }]
 

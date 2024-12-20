@@ -1,14 +1,7 @@
-import MainVisual from "@/components/section/MainVisual";
-import News from "@/components/section/News";
-import Outline from "@/components/section/Outline";
-import { siteConfig } from "@/props/siteConfig";
+import SectionWrapper from "@/components/section/SectionWrapper";
 
 export default function Home() {
   return (
-    <div style={{marginTop: siteConfig.headerHeight + "px"}}>
-      <MainVisual/>
-      <News/>
-      <Outline/>
-    </div>
+    <SectionWrapper/>
   );
 }
