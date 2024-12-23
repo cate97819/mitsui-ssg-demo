@@ -1,3 +1,4 @@
+import Diagnostic from "@/components/section/Diagnostic";
 import { siteConfig } from "@/props/siteConfig";
 
 export default function Home() {
@@ -10,6 +11,7 @@ export default function Home() {
           <span className='text-sm px-0.5'>SPECIAL PROGRAM</span>
         </h1>
       </div>
+      <Diagnostic/>
     </div>
   </div>
   );
