@@ -29,7 +29,7 @@ export default async function Home({ params }: Props) {
       <span>＞</span>
       <a href={headerItem[2].href} className="underline">出展社一覧</a>
     </div>
-    <div className="w-full mx-auto bg-red-700 text-white py-10">
+    <div className="w-full mx-auto bg-red-700 text-white py-10 px-4">
       <div style={{maxWidth: siteConfig.contentsWidth}} className="mx-auto">
         <div className="flex flex-row items-center gap-10">
           <img src={`/images/exhibitors/${target?.id}.png`} alt="" className="aspect-video bg-white p-4 max-w-[300px] object-contain"/>
@@ -42,10 +42,10 @@ export default async function Home({ params }: Props) {
         </div>
       </div>
     </div>
-    <div style={{maxWidth: siteConfig.contentsWidth}} className="mx-auto py-10">
+    <div style={{maxWidth: siteConfig.contentsWidth}} className="mx-auto py-10 px-4">
       <p>{target?.description}</p>
     </div>
-    <div style={{maxWidth: siteConfig.contentsWidth}} className="mx-auto">
+    <div style={{maxWidth: siteConfig.contentsWidth}} className="mx-auto px-4">
       <h1 className="text-xl font-bold py-1 px-3 my-2 border-l-red-700 border-l-4">出展商品</h1>
       <div className="flex flex-row gap-6 justify-start">
         {target?.productId.map((item, i) => (
