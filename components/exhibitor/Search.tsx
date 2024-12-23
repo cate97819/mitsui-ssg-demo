@@ -156,8 +156,8 @@ const Search = () => {
           :
             <button id='reset' className='border-[2px] border-slate-300 text-slate-800 hover:bg-slate-100 rounded-full px-2 py-0.5 transition-all ease-in-out' onClick={setZoneHandler}>ALL</button>
           }
-        <ul className='flex flex-row gap-4 py-4 justify-center overflow-x-scroll'>
-          <span className='flex flex-row gap-2 overflow-x-scroll w-fit text-nowrap'>
+        <ul className='flex flex-row gap-4 py-4 justify-center overflow-x-scroll hidden-scrollbar lg:overflow-x-visible'>
+          <span className='flex flex-row gap-2 overflow-x-scroll hidden-scrollbar lg:overflow-x-visible w-fit text-nowrap'>
           { exhibitorCategory.map((item, i) => (
             <li key={i} className=''>
               {searchQuery.zone.includes(item.id) ? 
@@ -169,7 +169,7 @@ const Search = () => {
           ))}
           </span>
         </ul>
-        <button onClick={setViewSearchOptionHandler} className='text-white bg-[#D71517] rounded-full flex flex-row px-4 pb-0.5 items-center hover:bg-red-800 transition-all ease-in-out'>
+        <button onClick={setViewSearchOptionHandler} className='text-white border-[2px] border-[#D71517] bg-[#D71517] rounded-full flex flex-row px-4 py-0.5 items-center hover:bg-red-800 transition-all ease-in-out'>
           詳細検索
           <img src="/images/search.svg" alt="" className='max-w-8'/>
         </button>
@@ -179,7 +179,7 @@ const Search = () => {
           <div key={i} className='relative p-4 border-2 rounded-lg flex flex-col gap-2'>
             {/* <FavoriteButton id={item.id} item={item} setFavoriteHandler={setFavoriteHandler}/> */}
             <div className='grid grid-cols-[30%_1fr] gap-4 '>
-              <Link href={`/exhibitor/${item.id}`}>
+              <Link href={`/exhibitor/${item.id}`} className='flex items-center'>
                 <img src={`/images/exhibitors/${item.id}.png`} alt="" className='w-full aspect-video'/>
               </Link>
               <div>

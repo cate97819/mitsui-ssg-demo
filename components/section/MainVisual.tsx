@@ -7,8 +7,8 @@ const MainVisual = () => {
     //   <img src="/images/logo.png" alt="" className='w-full max-w-[800px] px-4'/>
     // </div>
     <div className='relative w-full'>
-      <div className='bg-slate-300 min-h-[650px] flex flex-row items-center justify-center'>
-        {/* <img src="/images/logo.png" alt="" className='max-w-[800px] drop-shadow-xl'/> */}
+      <div className='bg-slate-100 min-h-[650px] flex flex-row items-center justify-center'>
+        <img src="/images/kvimage.jpg" alt="" className='max-w-[1000px] w-full drop-shadow-xl'/>
       </div>
       {/* <div className='absolute flex flex-row items-center justify-center top-0 left-0 bg-white/50 w-full h-full z-10'>
         <img src="/images/logo.png" alt="" className='max-w-[800px] drop-shadow-xl'/>
