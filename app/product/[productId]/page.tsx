@@ -1,6 +1,5 @@
 import ExhibitorItem from "@/components/product/ExhibitorItem";
 import { headerItem } from "@/docs";
-import { exhibitors } from "@/docs/exhibitor";
 import { productCategory, products, smallCategory } from "@/docs/product";
 import { siteConfig } from "@/props/siteConfig";
 
